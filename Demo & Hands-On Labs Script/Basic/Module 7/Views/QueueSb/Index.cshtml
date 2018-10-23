@@ -1,0 +1,17 @@
+@model [ApplicationName].Models.QueueSb 
+@{ 
+    ViewBag.Title = "SB Queue messages"; 
+} 
+<br />
+<h1>Service Bus Queue</h1>
+<br />
+<form action="/QueueSb/AddMessage" method="post" enctype="multipart/form-data">
+    <input type="number" name="totalMessage" id="totalMessage" /> 
+    <br /> 
+    <button type="submit" value="Add message">Add</button> 
+    <button type="submit" formaction="PeekMessage" formenctype="multipart/form-data" formmethod="post">Peek</button> 
+    <button type="submit" formaction="GetMessage" formenctype="multipart/form-data" formmethod="post">Get</button> 
+</form> 
+<br />
+<br />
+@Html.DisplayTextFor(m => m.Message) <br /><br /> <h1>Total of messages:</h1> @Html.DisplayTextFor(m => m.TotalOfMessages) 
