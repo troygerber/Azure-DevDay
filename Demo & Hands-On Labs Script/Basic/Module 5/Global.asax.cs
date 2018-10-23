@@ -1,0 +1,1 @@
+CosmosDbRepository<Models.ProductsFromCosmos>.Initialize();
