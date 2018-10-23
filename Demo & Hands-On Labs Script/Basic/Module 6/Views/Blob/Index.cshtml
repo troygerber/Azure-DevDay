@@ -1,0 +1,16 @@
+@model List<string> 
+@{
+    ViewBag.Title = "List of blobs"; 
+} 
+<h2>List of blobs</h2> 
+<ul>
+    @foreach (var item in Model)
+    { 
+        <li>@item @Html.ActionLink("Download", "DownloadBlob", new { blobName = item }) </li>
+    } 
+</ul>
+<h2>Upload a Blob</h2>
+<form action="/Blob/UploadBlob" method="post" enctype="multipart/form-data">
+    <input type="file" id="file" name="file" />
+    <input type="submit" value="Upload" />
+</form> 
