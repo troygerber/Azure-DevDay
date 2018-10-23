@@ -1,0 +1,34 @@
+@model [ApplicationName].Models.QueueSa 
+@{
+    ViewBag.Title = "SA Queue messages";
+} 
+<br />
+<h1>Storage Account Queue</h1> 
+<br /> 
+<form action="/QueueSa/AddMessage" method="post" enctype="multipart/form-data">     
+    <input type="text" name="message" id="message" />     
+    <br />     
+    <button type="submit" value="Add message">Add</button>     
+    <button type="submit" formaction="PeekMessage" formenctype="multipart/form-data" formmethod="post">Peek</button>     
+    <button type="submit" formaction="GetMessage" formenctype="multipart/form-data" formmethod="post">Get</button>     
+    <button type="submit" formaction="UpdateMessage" formenctype="multipart/form-data" formmethod="post">Update</button> 
+</form> 
+<br />
+<br />
+@Html.DisplayTextFor(m => m.Message) 
+<br />
+<br /> 
+<h3>Total of messages:</h3>
+ @Html.DisplayTextFor(m => m.TotalOfMessages)
+<br />
+<br />
+<h1>List of messages</h1>
+<ul>
+@if (Model.Messages != null)     
+{         
+    foreach (var item in Model.Messages) 
+    {      
+        <li>@item.AsString</li>
+    }
+} 
+</ul>
