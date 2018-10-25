@@ -1,0 +1,1 @@
+routes.AppendTrailingSlash = true;
